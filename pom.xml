@@ -12,10 +12,10 @@
   <packaging>war</packaging>
 
   <name>java-ci-cd</name>
-  <description>Sample Java CI/CD Web App (WAR) built with Jenkins + Maven + Docker</description>
+  <description>Sample Java CI/CD Web App (WAR) built with Jenkins, Maven, Docker</description>
 
   <properties>
-    <!-- Match Docker base image tomcat:9-jdk17 -->
+    <!-- Match tomcat:9-jdk17 base image -->
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,6 +27,7 @@
     <plugins>
       <!-- Allow WAR build without WEB-INF/web.xml -->
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.4.0</version>
         <configuration>
@@ -34,11 +35,11 @@
         </configuration>
       </plugin>
 
-      <!-- Optional: Make compiler settings explicit -->
+      <!-- Optional: make compiler settings explicit -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.13.0</version>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version        <version>3.13.0</version>
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
