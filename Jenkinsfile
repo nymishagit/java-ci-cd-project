@@ -1,19 +1,29 @@
 pipeline {
     agent any
+
     tools {
         maven 'MAVEN'
     }
+
     stages {
-        stage('Cloneaven Build') {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/nymishagit/java-ci-cd-project.git'
+            }
+        }
+
+        stage('Maven Build') {
             steps {
                 sh 'mvn clean package'
             }
         }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t java-ci-cd:latest .'
             }
         }
+
         stage('Deploy Container') {
             steps {
                 sh '''
@@ -23,4 +33,4 @@ pipeline {
             }
         }
     }
-
+}
