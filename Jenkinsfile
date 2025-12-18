@@ -5,12 +5,7 @@ pipeline {
         maven 'MAVEN'
     }
 
-    stages {
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/yourusername/java-ci-cd-project.git'
-            }
-        }
+   
 
         stage('Maven Build') {
             steps {
