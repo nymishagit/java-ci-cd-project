@@ -23,7 +23,7 @@ pipeline {
             steps {
                 sh '''
                 docker rm -f java-app || true
-                docker run -d -p 8080:8080 --name java-app java-ci-cd:latest
+                docker run -d -p 8081:8080 --name java-app java-ci-cd:latest
                 '''
             }
         }
